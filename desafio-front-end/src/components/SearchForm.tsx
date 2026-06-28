@@ -1,4 +1,22 @@
+import { type FormEvent, useState } from "react";
+
+import { useGitHubUser } from "../contexts/GitHubUserContext";
+
 export const SearchForm = () => {
+  const [username, setUsername] = useState("");
+  const { isLoading, searchUser } = useGitHubUser();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const trimmedUsername = username.trim();
+    if (!trimmedUsername) {
+      return;
+    }
+
+    void searchUser(trimmedUsername);
+  };
+
   return (
     <div className="row justify-content-center mt-5">
       <div className="col-12 col-md-8 col-lg-6">
@@ -15,17 +33,24 @@ export const SearchForm = () => {
               Digite o nome de um usuário do GitHub.
             </p>
 
-            <div className="input-group">
+            <form className="input-group" onSubmit={handleSubmit}>
               <input
                 type="text"
                 className="form-control"
                 placeholder="Ex: octocat"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                disabled={isLoading}
               />
 
-              <button className="btn btn-danger px-4" type="button">
-                Buscar
+              <button
+                className="btn btn-danger px-4"
+                type="submit"
+                disabled={isLoading || !username.trim()}
+              >
+                {isLoading ? "Buscando..." : "Buscar"}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

@@ -1,7 +1,12 @@
-import Home from './pages/Home'
+import { GitHubUserProvider } from "./contexts/GitHubUserContext";
+import Home from "./pages/Home";
 
-function App(){
-  return <Home />
+function App() {
+  return (
+    <GitHubUserProvider>
+      <Home />
+    </GitHubUserProvider>
+  );
 }
 
-export default App
+export default App;
