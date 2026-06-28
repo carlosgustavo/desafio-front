@@ -1,32 +1,97 @@
-# React + TypeScript + Vite
+# API GitHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicação desenvolvida em **React**, **TypeScript** e **Bootstrap** para buscar usuários do GitHub, visualizar informações do perfil e explorar seus repositórios públicos.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Buscar usuários pelo nome de usuário do GitHub
+- Exibir informações do perfil
+- Listar repositórios públicos
+- Ordenar repositórios por:
+  - Mais estrelas
+  - Menos estrelas
+  - Nome (A-Z)
+  - Nome (Z-A)
+- Paginação dos repositórios
+- Visualizar detalhes de um repositório
+- Acessar o repositório diretamente no GitHub
 
-## React Compiler
+## 🛠️ Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- React Router DOM
+- Axios
+- Bootstrap 5
 
-## Expanding the Oxlint configuration
+## 📁 Estrutura do projeto
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+src
+├── api
+├── assets
+├── components
+├── contexts
+├── pages
+├── services
+├── styles
+├── App.tsx
+├── main.tsx
+└── index.css
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 🚀 Como executar
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/desafio-front.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd desafio-front
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute a aplicação em modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+Para visualizar a versão de produção localmente:
+
+```bash
+npm run preview
+```
+
+## 📜 Scripts disponíveis
+
+| Comando | Descrição |
+|---------|-----------|
+| `npm run dev` | Executa o projeto em modo de desenvolvimento |
+| `npm run build` | Gera a build de produção |
+| `npm run preview` | Visualiza a build localmente |
+| `npm run lint` | Executa o Oxlint |
+
+## 🎯 Objetivo
+
+Este projeto foi desenvolvido como um desafio técnico para demonstrar conhecimentos em React, TypeScript, consumo de APIs REST, gerenciamento de estado, roteamento e componentização.
+
+## 👨‍💻 Autor
+
+**Carlos Gustavo**
