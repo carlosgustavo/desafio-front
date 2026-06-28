@@ -44,7 +44,5 @@ export const getGitHubUserRepositories = async (username: string) => {
     },
   );
 
-  return data.sort((firstRepository, secondRepository) => {
-    return secondRepository.stargazers_count - firstRepository.stargazers_count;
-  });
+  return data;
 };

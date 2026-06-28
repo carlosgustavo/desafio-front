@@ -1,13 +1,18 @@
-import { useGitHubUser } from "../contexts/GitHubUserContext";
+import {
+  type RepositoryOrder,
+  useGitHubUser,
+} from "../contexts/GitHubUserContext";
 
 export const RepositoryList = () => {
   const {
     currentPage,
+    changeRepositoryOrder,
     goToNextPage,
     goToPreviousPage,
     hasNextPage,
     hasPreviousPage,
     paginatedRepositories,
+    repositoryOrder,
     repositories,
     totalPages,
   } = useGitHubUser();
@@ -15,11 +20,29 @@ export const RepositoryList = () => {
   return (
     <section className="row justify-content-center mt-4">
       <div className="col-12 col-lg-8">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h3 className="h4 fw-bold text-dark mb-0">Repositórios</h3>
-          <span className="badge text-bg-light">
-            {repositories.length} encontrados
-          </span>
+        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-3">
+          <div>
+            <h3 className="h4 fw-bold text-dark mb-1">Repositórios</h3>
+            <span className="badge text-bg-light">
+              {repositories.length} encontrados
+            </span>
+          </div>
+
+          <label className="d-flex align-items-center gap-2 text-secondary small">
+            Ordenar
+            <select
+              className="form-select form-select-sm"
+              value={repositoryOrder}
+              onChange={(event) =>
+                changeRepositoryOrder(event.target.value as RepositoryOrder)
+              }
+            >
+              <option value="stars_desc">Mais estrelas</option>
+              <option value="stars_asc">Menos estrelas</option>
+              <option value="name_asc">Nome A-Z</option>
+              <option value="name_desc">Nome Z-A</option>
+            </select>
+          </label>
         </div>
 
         {repositories.length > 0 ? (
