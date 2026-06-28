@@ -1,15 +1,11 @@
-# GitHub User Search
+# Buscar usuários GitHub 
 
-Aplicação desenvolvida em **React**, **TypeScript** e **Bootstrap** para buscar usuários do GitHub, visualizar seus dados públicos e explorar seus repositórios.
-
-## 📸 Pré-visualização
-
-![Pré-visualização da aplicação](docs/preview.png)
+Aplicação desenvolvida em **React**, **TypeScript** e **Bootstrap** para buscar usuários do GitHub, visualizar informações do perfil e explorar seus repositórios públicos.
 
 ## ✨ Funcionalidades
 
-- Buscar usuários do GitHub
-- Visualizar informações do perfil
+- Buscar usuários pelo nome de usuário do GitHub
+- Exibir informações do perfil
 - Listar repositórios públicos
 - Ordenar repositórios por:
   - Mais estrelas
@@ -18,29 +14,45 @@ Aplicação desenvolvida em **React**, **TypeScript** e **Bootstrap** para busca
   - Nome (Z-A)
 - Paginação dos repositórios
 - Visualizar detalhes de um repositório
-- Link direto para o GitHub
+- Acessar o repositório diretamente no GitHub
 
-## 🚀 Tecnologias
+## 🛠️ Tecnologias
 
-- React
+- React 19
 - TypeScript
+- Vite
 - React Router DOM
 - Axios
 - Bootstrap 5
-- GitHub REST API
 
-## 📦 Instalação
+## 📁 Estrutura do projeto
 
-Clone o projeto:
-
-```bash
-git clone https://github.com/seu-usuario/github-user-search.git
+```text
+src
+├── api
+├── assets
+├── components
+├── contexts
+├── pages
+├── services
+├── styles
+├── App.tsx
+├── main.tsx
+└── index.css
 ```
 
-Entre na pasta:
+## 🚀 Como executar
+
+Clone o repositório:
 
 ```bash
-cd github-user-search
+git clone https://github.com/seu-usuario/desafio-front-end.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd desafio-front-end
 ```
 
 Instale as dependências:
@@ -49,34 +61,37 @@ Instale as dependências:
 npm install
 ```
 
-Execute o projeto:
+Execute a aplicação em modo de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-A aplicação estará disponível em:
+Para gerar a versão de produção:
 
-```text
-http://localhost:5173
+```bash
+npm run build
 ```
 
-## 📁 Estrutura do projeto
+Para visualizar a versão de produção localmente:
 
+```bash
+npm run preview
 ```
-src
-├── api
-├── components
-├── contexts
-├── pages
-├── routes
-└── App.tsx
-```
+
+## 📜 Scripts disponíveis
+
+| Comando | Descrição |
+|---------|-----------|
+| `npm run dev` | Executa o projeto em modo de desenvolvimento |
+| `npm run build` | Gera a build de produção |
+| `npm run preview` | Visualiza a build localmente |
+| `npm run lint` | Executa o Oxlint |
 
 ## 🎯 Objetivo
 
-Este projeto foi desenvolvido como desafio técnico para demonstrar conhecimentos em React, TypeScript, consumo de APIs REST, gerenciamento de estado, componentização e boas práticas de desenvolvimento Front-end.
+Este projeto foi desenvolvido como um desafio técnico para demonstrar conhecimentos em React, TypeScript, consumo de APIs REST, gerenciamento de estado, roteamento e componentização.
 
 ## 👨‍💻 Autor
 
-Carlos Gustavo
+**Carlos Gustavo**
