@@ -63,9 +63,17 @@ const RepositoryDetails = () => {
     <main className="container py-5">
       <div className="row justify-content-center">
         <div className="col-12 col-lg-8">
-          <Link to="/" className="btn btn-outline-secondary mb-4">
-            Voltar
-          </Link>
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h1 className="h3 fw-bold mb-0">
+                Detalhes do repositório selecionado
+              </h1>
+            </div>
+
+            <Link to="/" className="btn btn-outline-secondary">
+              ← Voltar
+            </Link>
+          </div>
 
           {isLoading && (
             <div className="alert alert-info mb-0" role="status">
@@ -112,9 +120,7 @@ const RepositoryDetails = () => {
 
                   <div className="col-12 col-sm-6">
                     <dt className="text-secondary small fw-normal">Forks</dt>
-                    <dd className="text-dark mb-0">
-                      {repository.forks_count}
-                    </dd>
+                    <dd className="text-dark mb-0">{repository.forks_count}</dd>
                   </div>
                 </dl>
 

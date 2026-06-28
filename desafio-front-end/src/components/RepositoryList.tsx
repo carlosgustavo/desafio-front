@@ -4,6 +4,7 @@ import {
   type RepositoryOrder,
   useGitHubUser,
 } from "../contexts/GitHubUserContext";
+import "../styles/RepositoryList.css";
 
 export const RepositoryList = () => {
   const {
@@ -24,8 +25,8 @@ export const RepositoryList = () => {
     <section className="row justify-content-center mt-4">
       <div className="col-12 col-lg-8">
         <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-3">
-          <div>
-            <h3 className="h4 fw-bold text-dark mb-1">Repositórios</h3>
+          <div className="d-flex align-items-center gap-2">
+            <h3 className="h4 fw-bold text-dark mb-0">Repositórios</h3>
             <span className="badge text-bg-light">
               {repositories.length} encontrados
             </span>
@@ -76,9 +77,7 @@ export const RepositoryList = () => {
                           <strong className="d-block text-dark">
                             {repository.stargazers_count}
                           </strong>
-                          <span className="text-secondary small">
-                            estrelas
-                          </span>
+                          <span className="text-secondary small">estrelas</span>
                         </div>
                       </div>
 
@@ -135,4 +134,6 @@ export const RepositoryList = () => {
       </div>
     </section>
   );
+  
 };
+
