@@ -15,6 +15,7 @@ export type GitHubUser = {
 export type GitHubRepository = {
   id: number;
   name: string;
+  full_name: string;
   description: string | null;
   html_url: string;
   stargazers_count: number;
@@ -29,6 +30,14 @@ const api = axios.create({
 export const getGitHubUser = async (username: string) => {
   const { data } = await api.get<GitHubUser>(
     `/users/${encodeURIComponent(username)}`,
+  );
+
+  return data;
+};
+
+export const getGitHubRepository = async (owner: string, repository: string) => {
+  const { data } = await api.get<GitHubRepository>(
+    `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repository)}`,
   );
 
   return data;

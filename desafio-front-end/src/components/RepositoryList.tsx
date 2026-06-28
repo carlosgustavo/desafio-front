@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   type RepositoryOrder,
   useGitHubUser,
@@ -15,6 +17,7 @@ export const RepositoryList = () => {
     repositoryOrder,
     repositories,
     totalPages,
+    user,
   } = useGitHubUser();
 
   return (
@@ -49,48 +52,49 @@ export const RepositoryList = () => {
           <>
             <div className="d-grid gap-3">
               {paginatedRepositories.map((repository) => (
-                <article
-                  className="card shadow-sm border-0 text-start"
+                <Link
+                  to={`/repos/${encodeURIComponent(
+                    user?.login ?? "",
+                  )}/${encodeURIComponent(repository.name)}`}
+                  className="text-decoration-none"
                   key={repository.id}
                 >
-                  <div className="card-body p-4">
-                    <div className="d-flex flex-column flex-sm-row justify-content-between gap-3">
-                      <div>
-                        <h4 className="h5 fw-bold mb-2">
-                          <a
-                            href={repository.html_url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-dark text-decoration-none"
-                          >
+                  <article className="repository-card card shadow-sm border-0 text-start h-100">
+                    <div className="card-body p-4">
+                      <div className="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                        <div>
+                          <h4 className="h5 fw-bold mb-2 text-dark">
                             {repository.name}
-                          </a>
-                        </h4>
-                        <p className="text-secondary">
-                          {repository.description ?? "Descrição não informada."}
-                        </p>
+                          </h4>
+                          <p className="text-secondary">
+                            {repository.description ??
+                              "Descrição não informada."}
+                          </p>
+                        </div>
+
+                        <div className="text-sm-end flex-shrink-0">
+                          <strong className="d-block text-dark">
+                            {repository.stargazers_count}
+                          </strong>
+                          <span className="text-secondary small">
+                            estrelas
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="text-sm-end flex-shrink-0">
-                        <strong className="d-block text-dark">
-                          {repository.stargazers_count}
-                        </strong>
-                        <span className="text-secondary small">estrelas</span>
-                      </div>
-                    </div>
-
-                    <div className="d-flex flex-wrap gap-2 mt-3">
-                      {repository.language && (
-                        <span className="badge text-bg-secondary">
-                          {repository.language}
+                      <div className="d-flex flex-wrap gap-2 mt-3">
+                        {repository.language && (
+                          <span className="badge text-bg-secondary">
+                            {repository.language}
+                          </span>
+                        )}
+                        <span className="badge text-bg-light">
+                          {repository.forks_count} forks
                         </span>
-                      )}
-                      <span className="badge text-bg-light">
-                        {repository.forks_count} forks
-                      </span>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
 
