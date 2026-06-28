@@ -24,7 +24,6 @@ export const SearchForm = () => {
           <div className="card-body p-4">
             <h2
               className="text-center fw-bold mb-2"
-              style={{ color: "#131313" }}
             >
               Buscar usuário
             </h2>
@@ -37,7 +36,7 @@ export const SearchForm = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Ex: octocat"
+                placeholder="Ex: carlosgustavo"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
                 disabled={isLoading}

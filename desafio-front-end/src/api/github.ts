@@ -12,6 +12,16 @@ export type GitHubUser = {
   bio: string | null;
 };
 
+export type GitHubRepository = {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+};
+
 const api = axios.create({
   baseURL: "https://api.github.com",
 });
@@ -22,4 +32,19 @@ export const getGitHubUser = async (username: string) => {
   );
 
   return data;
+};
+
+export const getGitHubUserRepositories = async (username: string) => {
+  const { data } = await api.get<GitHubRepository[]>(
+    `/users/${encodeURIComponent(username)}/repos`,
+    {
+      params: {
+        per_page: 100,
+      },
+    },
+  );
+
+  return data.sort((firstRepository, secondRepository) => {
+    return secondRepository.stargazers_count - firstRepository.stargazers_count;
+  });
 };
